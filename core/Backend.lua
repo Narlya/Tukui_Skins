@@ -19,14 +19,14 @@ function AS:Init()
 				elseif UISkinOptions[skin] == "Disabled" then
 					UISkinOptions[skin] = false
 				end
-				self:RegisteredSkin(skin, data.priority, data.func, data.events)
+				self:SkinRegistered(skin, data.priority, data.func, data.events)
 			end
 		end
 	end
 	for skin, funcs in pairs(AS.skins) do
 		if AS:CheckOption(skin) then
 			for _, func in ipairs(funcs) do
-				AS:CallSkin(skin, func, "PLAYER_ENTERING_WORLD")
+				func(self.frame, "PLAYER_ENTERING_WORLD")
 			end
 		end
 	end
@@ -45,29 +45,14 @@ function AS:Init()
 						if not arg then break end
 						tinsert(args, arg)
 					end
-					AS:CallSkin(skin, func, event, unpack(args))
+					func(self.frame, event, unpack(args))
 				end
 			end
 		end
 	end)
 end
 
-function AS:CallSkin(skin, func, event, ...)
-	local args = {}
-	for i = 1, select('#',...) do
-		local arg = select(i, ...)
-		if not arg then break end
-		tinsert(args, arg)
-	end
-	local Pass, Error = pcall(func, self, event, unpack(args))
-	if not Pass then
-		local message = "%s: |cFFFF0000There was an error in the|r |cFF0AFFFF%s|r |cFFFF0000skin|r. Please report this to the Azilroka immediately @ http://www.tukui.org/tickets/tukuiskins"
-		print(format(message, AS.Title, gsub(skin, "Skin", "")))
-		print(AS.Title, "Error Message: ", Error)
-	end
-end
-
-function AS:RegisteredSkin(skinName, priority, func, events)
+function AS:SkinRegistered(skinName, priority, func, events)
     local events = events
 	for c,_ in pairs(events) do
 		if string.find(c,'%[') then

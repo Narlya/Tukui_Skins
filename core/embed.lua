@@ -5,7 +5,7 @@ function AS:EmbedTooltip(frame)
 	local r, l, b, t = frame:GetRight(), EmbeddingWindow:GetLeft(), frame:GetBottom(), EmbeddingWindow:GetTop()
 	if not r or not l or not b or not t or r < l or b > t then return end
 	local point, relativeTo, relativePoint, xOffset, yOffset = frame:GetPoint(1)
-	if relativeTo == frame and point == "BOTTOMRIGHT" and relativePoint == "TOPRIGHT" then
+	if relativeTo == AS.Tooltip and point == "BOTTOMRIGHT" and relativePoint == "TOPRIGHT" then
 		local found = false
 		if AS:CheckOption("EmbedSkada","Skada") and Skada and Skada.GetWindows then
 			for _, window in pairs(Skada:GetWindows()) do if window:IsShown() then found = true end end
@@ -26,9 +26,7 @@ function AS:EmbedTooltip(frame)
 	end
 end
 
-if AS.TooltipEnable then
-	GameTooltip:HookScript("OnUpdate", function(frame, ...) AS:EmbedTooltip(frame) end)
-end
+GameTooltip:HookScript("OnUpdate", function(frame, ...) AS:EmbedTooltip(frame) end)
 
 function AS:EmbedCheck(login)
 	if AS:CheckOption("EmbedOmen","Omen") then AS:EmbedOmen() end
@@ -266,8 +264,7 @@ local function CreateToggleButton(name, buttontext, panel1, panel2, tooltiptext1
 	local frame = CreateFrame("Button", name, UIParent)
 	frame:SetTemplate("Transparent")
 	frame:Size(panel1:GetHeight())
-	--frame:FontString("text", AS.ActionBarFont, 12)
-	frame:FontString("text", AS.PixelFont, 12)
+	frame:FontString("text", AS.ActionBarFont, 12)
 	frame.text:SetText(buttontext)
 	frame.text:SetPoint("CENTER", 0, 0)
 	frame:RegisterForClicks("LeftButtonDown", "RightButtonDown")
@@ -319,8 +316,7 @@ local function CreateToggleButton(name, buttontext, panel1, panel2, tooltiptext1
 	end)
 end
 
-CreateToggleButton("RightToggleButton", ">", AS.InfoRight, AS.ChatBackgroundRight, "Toggle Right Chat Panel", "Toggle Embedded AddOn")
---CreateToggleButton("RightToggleButton", "►", AS.InfoRight, AS.ChatBackgroundRight, "Toggle Right Chat Panel", "Toggle Embedded AddOn")
+CreateToggleButton("RightToggleButton", "►", AS.InfoRight, AS.ChatBackgroundRight, "Toggle Right Chat Panel", "Toggle Embedded AddOn")
 RightToggleButton:Point("LEFT", AS.InfoRight, "RIGHT", 2, 0)
 RightToggleButton:HookScript("OnClick", function(self, btn)
 	if btn == "RightButton" then
@@ -337,8 +333,7 @@ RightToggleButton:HookScript("OnClick", function(self, btn)
 end)
 RightToggleButton:SetScript("PreClick", function(self) if ChatFrame4Tab:IsShown() then ChatFrame4Hide = true end end)
 
-CreateToggleButton("LeftToggleButton", "<", AS.InfoLeft, AS.ChatBackgroundLeft, "Toggle Left Chat Panel", "Toggle Extra Skins/Options")
---CreateToggleButton("LeftToggleButton", "◄", AS.InfoLeft, AS.ChatBackgroundLeft, "Toggle Left Chat Panel", "Toggle Extra Skins/Options")
+CreateToggleButton("LeftToggleButton", "◄", AS.InfoLeft, AS.ChatBackgroundLeft, "Toggle Left Chat Panel", "Toggle Extra Skins/Options")
 LeftToggleButton:Point("RIGHT", AS.InfoLeft, "LEFT", -2, 0)
 LeftToggleButton:HookScript("OnClick", function(self, btn)
 	local Ace3Options = IsAddOnLoaded("Enhanced_Config") and true or false

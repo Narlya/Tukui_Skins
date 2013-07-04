@@ -16,7 +16,7 @@ function AS:SkinQuartz()
 		else
 			self.IconBorder:Show()
 		end
-		if not self.Bar.backdrop then AS:SkinBackdropFrame(self.Bar) end
+		if not self.Bar.Backdrop then AS:SkinBackdropFrame(self.Bar) end
 	end
 
 	local template = Q3.CastBarTemplate.template

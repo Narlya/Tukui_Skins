@@ -94,14 +94,14 @@ function AS:SkinSkada()
 		skada.button:SetBackdropColor(0, 0, 0, 0)
 		skada:SetBackdrop(nil)
 		AS:SkinBackdropFrame(skada)
-		skada.backdrop:ClearAllPoints()
+		skada.Backdrop:ClearAllPoints()
 		if win.db.enabletitle then
-			skada.backdrop:Point("TOPLEFT", skada.button, "TOPLEFT", -2, 2)
+			skada.Backdrop:Point("TOPLEFT", skada.button, "TOPLEFT", -2, 2)
 		else
-			skada.backdrop:Point("TOPLEFT", skada, "TOPLEFT", -2, 2)
+			skada.Backdrop:Point("TOPLEFT", skada, "TOPLEFT", -2, 2)
 		end
-		skada.backdrop:Point("BOTTOMRIGHT", skada, "BOTTOMRIGHT", 2, -2)
-		if not AS:CheckOption("SkadaBackdrop") then skada.backdrop:Hide() end
+		skada.Backdrop:Point("BOTTOMRIGHT", skada, "BOTTOMRIGHT", 2, -2)
+		if not AS:CheckOption("SkadaBackdrop") then skada.Backdrop:Hide() end
 	end
 end
 

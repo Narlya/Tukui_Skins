@@ -74,8 +74,8 @@ function AS:SkinFactionizer()
 	FIZ_ReputationDetailAtWarCheckBox:SetScript("OnUpdate", function(frame)
 		frame:StripTextures()
 		frame:CreateBackdrop()
-		frame.backdrop:Point("TOPLEFT", 4, -4)
-		frame.backdrop:Point("BOTTOMRIGHT", -4, 4)
+		frame.Backdrop:Point("TOPLEFT", 4, -4)
+		frame.Backdrop:Point("BOTTOMRIGHT", -4, 4)
 		if frame.SetCheckedTexture then
 			frame:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-SwordCheck")
 		end

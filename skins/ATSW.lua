@@ -117,16 +117,16 @@ function AS:SkinATSW()
 		icon:SetTexCoord(.08, .92, .08, .92)
 		icon:SetDrawLayer("OVERLAY")
 
-		if not icon.backdrop then
-			icon.backdrop = CreateFrame("Frame", nil, button)
-			icon.backdrop:SetFrameLevel(button:GetFrameLevel() - 1)
-			icon.backdrop:SetTemplate("Default")
-			icon.backdrop:Point("TOPLEFT", icon, "TOPLEFT", -2, 2)
-			icon.backdrop:Point("BOTTOMRIGHT", icon, "BOTTOMRIGHT", 2, -2)
+		if not icon.Backdrop then
+			icon.Backdrop = CreateFrame("Frame", nil, button)
+			icon.Backdrop:SetFrameLevel(button:GetFrameLevel() - 1)
+			icon.Backdrop:SetTemplate("Default")
+			icon.Backdrop:Point("TOPLEFT", icon, "TOPLEFT", -2, 2)
+			icon.Backdrop:Point("BOTTOMRIGHT", icon, "BOTTOMRIGHT", 2, -2)
 		end
 
-		icon:SetParent(icon.backdrop)
-		count:SetParent(icon.backdrop)
+		icon:SetParent(icon.Backdrop)
+		count:SetParent(icon.Backdrop)
 		count:SetDrawLayer("OVERLAY")
 
 		if i > 2 and once == false then

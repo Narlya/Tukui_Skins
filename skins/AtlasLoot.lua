@@ -14,6 +14,7 @@ function AS:SkinAtlasLoot()
 		AtlasLootPanelSearch_ClearButton:Point("LEFT", AtlasLootPanelSearch_SelectModuel, "RIGHT", 5, 0)
 		AtlasLootPanelSearch_LastResultButton:Point("LEFT", AtlasLootPanelSearch_ClearButton, "RIGHT", 5, 0)
 		AtlasLoot10Man25ManSwitch:Point("BOTTOM", AtlasLootItemsFrame, "BOTTOM", -130, 4)
+		AtlasLootServerQueryButton:Point("BOTTOM", AtlasLootItemsFrame, "BOTTOM", 130, 4)
 
 		if AtlasLoot_PanelButton_2 then AtlasLoot_PanelButton_2:Point("LEFT", AtlasLoot_PanelButton_1, "RIGHT", 1, 0) end
 		if AtlasLoot_PanelButton_3 then AtlasLoot_PanelButton_3:Point("LEFT", AtlasLoot_PanelButton_2, "RIGHT", 1, 0) end
@@ -128,6 +129,7 @@ function AS:SkinAtlasLoot()
 	
 	local buttons = {
 		"AtlasLoot_AtlasInfoFrame_ToggleALButton",
+		"AtlasLootServerQueryButton",
 		"AtlasLootPanelSearch_SearchButton",
 		"AtlasLootDefaultFrame_CompareFrame",
 		"AtlasLootPanelSearch_ClearButton",
@@ -203,7 +205,6 @@ function AS:SkinAtlasLoot()
 	if AtlasLootItemsFrame_Heroic then AS:SkinCheckBox(AtlasLootItemsFrame_Heroic) end
 	if AtlasLootCompareFrameSearch_FilterCheck then AS:SkinCheckBox(AtlasLootCompareFrameSearch_FilterCheck) end
 	if AtlasLootItemsFrame_RaidFinder then AS:SkinCheckBox(AtlasLootItemsFrame_RaidFinder) end
-	if AtlasLootItemsFrame_Thunderforged then AS:SkinCheckBox(AtlasLootItemsFrame_Thunderforged) end
 
 	local Frame = AtlasLootPanel
 	Frame.Titel:SetTextColor(23/255, 132/255, 209/255)

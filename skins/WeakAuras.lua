@@ -4,12 +4,12 @@ local AS = unpack(select(2,...))
 local name = "WeakAurasSkin"
 function AS:SkinWeakAuras()
 	local function Skin_WeakAuras(frame)
-		if not frame.backdrop then
+		if not frame.Backdrop then
 			frame:CreateBackdrop('Default')
 			frame.icon.OldAlpha = frame.icon.SetAlpha
 			frame.icon.SetAlpha = function(self, ...)
 				frame.icon.OldAlpha(self, ...)
-				frame.backdrop:SetAlpha(...)
+				frame.Backdrop:SetAlpha(...)
 			end
 		end
 

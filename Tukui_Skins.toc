@@ -1,4 +1,4 @@
-## Interface: 50300
+## Interface: 50200
 ## Title: |cFFC495DDTukui|r |cFFFFFFFFSkins|r
 ## Version: 1.32
 ## Author: Azilroka, Sortokk, and others see Credits.txt
